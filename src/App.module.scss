@@ -1,12 +1,28 @@
 #root {
-  height: 100%;
+  height: 100vh;
   width: 100%;
   margin: 0 auto;
   text-align: center;
 }
 
+.pageWrapper {
+}
+
 .landing {
   background: url('./assets/images/landing-bg.png') center center no-repeat;
+  background-size: cover;
+}
+
+.email {
+  background: url('./assets/icons/email.svg') center center no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.linkedIn {
+  background: url('./assets/icons/linked-in.svg') center center no-repeat;
+  height: 100%;
+  width: 100%;
 }
 
 .landingContainer {
@@ -15,9 +31,18 @@
   height: 100%;
   padding: 4.75rem 6rem;
 
+  .right {
+    place-items: flex-end;
+    width: fit-content;
+    > div {
+      width: 44px;
+    }
+  }
+
   .left {
     display: flex;
     flex-direction: column;
+    width: fit-content;
     a {
       font-size: 1.25rem;
       line-height: 2.5rem;
@@ -26,6 +51,8 @@
   }
 
   h1 {
+    margin-left: auto;
+    margin-right: auto;
     font-size: 15.75rem;
     line-height: 3.125;
     font-weight: 400;
