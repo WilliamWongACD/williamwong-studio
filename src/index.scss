@@ -1,6 +1,12 @@
 @import './assets/_variables.scss';
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
 
+#root {
+  // height: 100vh;
+  // width: 100%;
+  // margin: 0 auto;
+}
+
 :root {
   // font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-family: 'Raleway', system-ui, Avenir, Helvetica, sans-serif;
@@ -21,23 +27,54 @@ a {
   color: $blue;
   text-decoration: inherit;
   cursor: pointer;
+  transition: 420ms all ease-in-out;
 }
 a:hover {
-  color: #535bf2;
+  color: red;
+}
+
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  padding: 0;
+  margin: 0;
 }
 
 body {
+  font-size: 1.25rem;
+  line-height: 2rem;
   background: $dark-gray;
-  width: 100vw;
-  height: 100vh;
   margin: 0;
   padding: 0;
-  min-height: 100vh;
+  // overflow-x: hidden;
+}
+
+p {
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 2rem;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 2.5;
+}
+h3 {
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+
+h4 {
 }
 
 h5 {
@@ -46,6 +83,7 @@ h5 {
   font-size: 1.5rem;
   line-height: 2;
 }
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -57,9 +95,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -67,11 +107,12 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: white;
     background-color: #ffffff;
   }
   a:hover {
     color: #747bff;
+    color: lighten($blue, 30%);
   }
   button {
     background-color: #f9f9f9;
