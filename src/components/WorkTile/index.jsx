@@ -1,7 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import styles from './WorkTile.module.scss';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
-const WorkTile = ({ src }) => {
+const WorkTile = ({ src, to }) => {
   const ref = useRef();
 
   // useEffect(() => {
@@ -26,9 +27,9 @@ const WorkTile = ({ src }) => {
   // }, []);
 
   return (
-    <div ref={ref} className={styles.iconContainer}>
+    <Link to={to || '/'} className={styles.iconContainer}>
       <img src={src} />
-    </div>
+    </Link>
   );
 };
 

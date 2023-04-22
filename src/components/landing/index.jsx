@@ -1,36 +1,33 @@
 import React from 'react';
 import Hero from './Hero';
-import WorkTile from '../WorkTile';
 import styles from './styles.module.scss';
-import Footer from './Footer';
+import About from './About';
 import { fadeIn, iconContainer } from '../WorkTile/WorkTile.module.scss';
+import PageWrapper from '../../PageWrapper';
+import { useLocation } from 'react-router-dom';
+import CaseStudies from '../CaseStudies';
 
-const items = [
-  {
-    title: null,
-    description: null
-  },
-  {
-    title: 'Illustrations',
-    description: 'We strongly felt that this is one area we could make a true impact. Not only coming up with stunning visuals for each game, but solving for the dense amount of content in a small space. Most importantly however we saw this as something we can make into components and apply across many different channels.'
-  },
-  {
-    title: null,
-    description: null
-  },
-  {
-    title: null,
-    description: null
-  },
-  {
-    title: null,
-    description: null
-  }
+export const workTiles = [
+  { src: 'http://williamwong.info/dsnimg/home_work_05_TNF.svg', to: '/tnf' },
+  { src: 'http://williamwong.info/dsnimg/home_work_04_sunovion.svg', to: '/sunovion' },
+  { src: 'http://williamwong.info/dsnimg/home_work_03_eBay.svg' },
+  { src: 'http://williamwong.info/dsnimg/home_work_08_oyko.svg' },
+  { src: 'http://williamwong.info/dsnimg/home_work_09_woolite.svg' },
+  { src: 'http://williamwong.info/dsnimg/home_work_10_euc.svg' }
+  // {
+  //   src: 'http://williamwong.info/dsnimg/home_work_01_usarmy.svg'
+  // },
+  // {
+  //   src: 'http://williamwong.info/dsnimg/home_work_02_enfamil.svg'
+  // },
+  // { src: 'http://williamwong.info/dsnimg/home_work_06_RWJF.svg' },
+  // { src: 'http://williamwong.info/dsnimg/home_work_07_acuvue.svg' },
+  // { src: 'http://williamwong.info/dsnimg/home_work_11_hasbro.svg' },
+  // { src: 'http://williamwong.info/dsnimg/home_work_12_samsung.svg' }
 ];
 
-const workTiles = [{ src: 'http://williamwong.info/dsnimg/home_work_01_usarmy.svg' }, { src: 'http://williamwong.info/dsnimg/home_work_02_enfamil.svg' }, { src: 'http://williamwong.info/dsnimg/home_work_03_eBay.svg' }, { src: 'http://williamwong.info/dsnimg/home_work_04_sunovion.svg' }, { src: 'http://williamwong.info/dsnimg/home_work_05_TNF.svg' }, { src: 'http://williamwong.info/dsnimg/home_work_06_RWJF.svg' }, { src: 'http://williamwong.info/dsnimg/home_work_07_acuvue.svg' }, { src: 'http://williamwong.info/dsnimg/home_work_08_oyko.svg' }, { src: 'http://williamwong.info/dsnimg/home_work_09_woolite.svg' }, { src: 'http://williamwong.info/dsnimg/home_work_10_euc.svg' }, { src: 'http://williamwong.info/dsnimg/home_work_11_hasbro.svg' }, { src: 'http://williamwong.info/dsnimg/home_work_12_samsung.svg' }];
-
 const LandingPage = () => {
+  const location = useLocation();
   //TODO: Should this live here or at the workTile level?
   React.useEffect(() => {
     const handleObserver = entries => {
@@ -46,25 +43,27 @@ const LandingPage = () => {
     const observer = new IntersectionObserver(handleObserver);
     const workTiles = document.querySelectorAll(`.${iconContainer}`);
 
-    workTiles.forEach(tile => {
-      observer.observe(tile);
-    });
+    // workTiles.forEach(tile => {
+    //   observer.observe(tile);
+    // });
 
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [window.innerWidth, window.innerHeight]);
+
+  React.useEffect(() => {
+    if (location.state?.shouldScrollToWork) document.getElementById('work').scrollIntoView({ behavior: 'smooth' });
+    if (location.state?.shouldScrollToAbout) document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+    if (location.state?.shouldScrollToTop) window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [location.state]);
 
   return (
-    <>
+    <PageWrapper>
       <Hero />
-      <div className={styles.workTiles}>
-        {workTiles.map(props => (
-          <WorkTile key={props.src} {...props} />
-        ))}
-      </div>
-      <Footer />
-    </>
+      <CaseStudies />
+      <About />
+    </PageWrapper>
   );
 };
 

@@ -1,11 +1,32 @@
-.landing {
+.hero {
   background: url('../../assets/images/landing-bg.png') center center no-repeat;
   background-size: auto;
   background-attachment: fixed;
   background-size: cover;
-  // @media (min-width: 1024px) {
-  //   background-size: cover;
-  // }
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h4 {
+    // font-size: 15.75rem;
+    // font-size: clamp(15.75rem, 15.75rem, 1.25rem);
+    // font-size: 15vw;
+    // align-self: center;
+    opacity: 0;
+    @media (max-width: 768px) {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      font-size: 1.25rem;
+      max-width: revert;
+    }
+    line-height: 3.125;
+    max-width: 38%;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    margin-inline: auto;
+  }
 }
 
 .email {
@@ -19,8 +40,8 @@
 }
 
 .landingContainer {
-  max-width: 1200px;
-  position: sticky;
+  width: calc(100% - 2rem);
+  margin-inline: auto;
   z-index: 1;
   display: grid;
   grid-template-columns: 20% 1fr 20%;
@@ -30,23 +51,15 @@
   height: calc(100vh - 4rem);
   margin-inline: auto;
   padding: 2rem 1.25rem;
-  // @media (min-width: 1024px) {
-  //   height: calc(100vh - 9.5rem);
-  //   padding: 4.75rem 6rem;
-  // }
 
   .right {
     right: 4rem;
     place-items: flex-end;
     gap: 1rem;
-    // > div {
-    //   width: 44px;
-    // }
   }
 
   .left {
     left: 4rem;
-    // position: fixed;
     display: flex;
     flex-direction: column;
     width: fit-content;
@@ -63,32 +76,6 @@
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-  }
-
-  // @keyframes slideUp {
-  //   from {
-  //     transform: translateY(8%);
-  //     opacity: 0;
-  //   }
-  //   to {
-  //     transform: translateY(0);
-  //     opacity: 1;
-  //   }
-  // }
-
-  h1 {
-    // animation: slideUp 1.675s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-    // animation-delay: 675ms;
-    font-size: 15.75rem;
-    font-size: clamp(15.75rem, 15.75rem, 1.25rem);
-    font-size: 15vw;
-    align-self: center;
-    opacity: 0;
-    @media (min-width: 1600px) {
-      font-size: 10vw;
-    }
-    line-height: 3.125;
-    font-weight: 400;
   }
 }
 
@@ -111,23 +98,4 @@
 
 .read-the-docs {
   color: #888;
-}
-
-.workTiles {
-  // display: grid;
-  // grid-template-columns: repeat(auto-fill, minmax(1fr, 294px));
-  padding: 2rem 0;
-  display: flex;
-  max-width: 1274px;
-  // margin-inline: auto;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: calc(100% - 2rem);
-  margin-inline: auto;
-  @media (min-width: 1024px) {
-    width: auto;
-    // gap: 2.25rem;
-    padding: 14rem 0;
-  }
 }
