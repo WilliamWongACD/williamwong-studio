@@ -2,9 +2,9 @@ import React from 'react';
 import styles from './PageWrapper.module.scss';
 import { Link } from 'react-router-dom';
 import WordMark from './components/WordMark';
-// import IconContainer from './components/IconContainer';
-// import linkedInIcon from './assets/icons/linked-in.svg';
-// import emailIcon from './assets/icons/email.svg';
+import { flex, centerItems } from './assets/_flex.module.scss';
+import { classes } from './utils/index';
+
 const navLinks = [
   { to: { pathname: '/', state: { shouldScrollToWork: true } }, title: 'Work' },
   { to: '/resume', title: 'Resume' },
@@ -30,7 +30,7 @@ const PageWrapper = ({ light, children }) => {
   return (
     <div className={[styles.wrapper, light ? styles.light : ''].join(' ')}>
       <nav className={styles.nav}>
-        <Link to={{ pathname: '/', state: { shouldScrollToTop: true } }} ref={wordMarkRef} style={{ display: 'flex', alignItems: 'center' }}>
+        <Link className={classes(flex, centerItems)} to={{ pathname: '/', state: { shouldScrollToTop: true } }} ref={wordMarkRef}>
           <img src="http://williamwong.info/williamwong.design/assets/w2_logo.svg" />
           <h5 className={styles.wordMark}>&nbsp;&nbsp;William Wong</h5>
         </Link>
@@ -49,14 +49,6 @@ const PageWrapper = ({ light, children }) => {
       </nav>
       {children}
       <Footer />
-      {/* <aside className={styles.right} ref={asideRightRef}>
-        <IconContainer height={24} width={24}>
-          <img src={emailIcon} className={styles.email} />
-        </IconContainer>
-        <IconContainer height={24} width={24}>
-          <img src={linkedInIcon} className={styles.linkedIn} />
-        </IconContainer>
-      </aside> */}
     </div>
   );
 };

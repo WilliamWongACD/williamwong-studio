@@ -74,6 +74,13 @@
 }
 
 .workTiles {
+  margin-bottom: 1rem;
+  & swiper-slide:first-of-type {
+    margin-left: 0.5rem;
+  }
+  img {
+    border-radius: 1.5rem;
+  }
   @media (min-width: 1024px) {
     display: flex;
     gap: 1rem;

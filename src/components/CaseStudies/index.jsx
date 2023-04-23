@@ -6,9 +6,11 @@ import styles from './styles.module.scss';
 import caseStudy1 from '../../assets/images/case-study-1.svg';
 import caseStudy2 from '../../assets/images/case-study-2.svg';
 import { register } from 'swiper/element/bundle';
-
 import useWindowWidth from '../../hooks/useWindowWidth';
+import { textCenter } from '../../assets/_utils.module.scss';
+
 register();
+
 const studies = [
   {
     src: caseStudy1,
@@ -26,7 +28,9 @@ const CaseStudies = () => {
   const isMobileWidth = useWindowWidth() < 1024;
   return (
     <div className={styles.caseStudies} id="caseStudies">
-      <h3 style={{ marginBottom: '4rem', textAlign: 'center' }}>Case Studies</h3>
+      <h3 className={textCenter} style={{ marginBottom: '4rem' }}>
+        Case Studies
+      </h3>
       <div>
         {studies.map((studyProps, i) => (
           <CaseStudyItem key={studyProps.src} {...studyProps} index={i + 1} />

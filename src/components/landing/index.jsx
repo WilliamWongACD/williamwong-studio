@@ -6,9 +6,11 @@ import { fadeIn, iconContainer } from '../WorkTile/WorkTile.module.scss';
 import PageWrapper from '../../PageWrapper';
 import { useLocation } from 'react-router-dom';
 import CaseStudies from '../CaseStudies';
+import TNF from '../../assets/images/logos/tnf.svg';
 
 export const workTiles = [
-  { src: 'http://williamwong.info/dsnimg/home_work_05_TNF.svg', to: '/tnf' },
+  // { src: 'http://williamwong.info/dsnimg/home_work_05_TNF.svg', to: '/tnf' },
+  { src: TNF, to: '/tnf' },
   { src: 'http://williamwong.info/dsnimg/home_work_04_sunovion.svg', to: '/sunovion' },
   { src: 'http://williamwong.info/dsnimg/home_work_03_eBay.svg' },
   { src: 'http://williamwong.info/dsnimg/home_work_08_oyko.svg' },
