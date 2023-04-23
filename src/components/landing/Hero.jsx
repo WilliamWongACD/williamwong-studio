@@ -1,20 +1,24 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import { classes } from '../../utils';
-import IconContainer from '../IconContainer';
-import { flex, col } from '../../assets/_flex.module.scss';
-import linkedInIcon from '../../assets/icons/linked-in.svg';
-import emailIcon from '../../assets/icons/email.svg';
+// import { classes } from '../../utils';
+// import IconContainer from '../IconContainer';
+// import { flex, col } from '../../assets/_flex.module.scss';
+// import linkedInIcon from '../../assets/icons/linked-in.svg';
+// import emailIcon from '../../assets/icons/email.svg';
 import useIntersectionObserver from '../../hooks/useIntersectionObserver';
 import { fadeIn } from '../WorkTile/WorkTile.module.scss';
 
 const Hero = () => {
   const ref = React.createRef(null);
 
+  React.useEffect(() => {}, [window.innerWidth]);
+
   const handleObserver = entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add(fadeIn);
+        setTimeout(() => {
+          entry.target.classList.add(fadeIn);
+        }, 100);
       } else {
         entry.target.classList.remove(fadeIn);
       }
@@ -24,29 +28,9 @@ const Hero = () => {
   useIntersectionObserver(ref, handleObserver, { threshold: 0.45 });
 
   return (
-    <div className={styles.landing}>
-      <div className={styles.landingContainer}>
-        <aside className={styles.left}>
-          <h5>William</h5>
-          <h5 style={{ marginTop: '-1rem' }}>Wong</h5>
-          <a href="#">Work</a>
-          <a href="#">About</a>
-          <div style={{ flexBasis: '100%', marginTop: '0.25rem', flex: '1', marginRight: '75%' }}></div>
-        </aside>
-        <main>
-          <h1 ref={ref}>Hello</h1>
-        </main>
-        <aside className={classes(styles.right, flex, col)}>
-          <div style={{ flex: 1 }} />
-          <IconContainer height={34} width={34}>
-            <img src={emailIcon} className={styles.email} />
-          </IconContainer>
-          <IconContainer height={34} width={34}>
-            <img src={linkedInIcon} className={styles.linkedIn} />
-          </IconContainer>
-        </aside>
-      </div>
-    </div>
+    <main className={styles.hero}>
+      <h4 ref={ref}>I’m William Wong, an experienced Visual UI Designer based in NYC. I’m passionate about creating digital experiences through problem-solving and innovation. Focused on visual storytelling aimed to bring user experiences to life.</h4>
+    </main>
   );
 };
 

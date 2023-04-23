@@ -1,11 +1,15 @@
-import styles from './App.module.scss';
 import LandingPage from './components/landing';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Sunovion from './components/Work/Sunovion';
+import TNF from './components/Work/TNF';
 
 function App() {
   return (
-    <div className={styles.pageWrapper}>
-      <LandingPage />
-    </div>
+    <Router>
+      <Route exact path="/" component={LandingPage} />
+      <Route exact path="/sunovion" component={Sunovion} />
+      <Route exact path="/tnf" component={TNF} />
+    </Router>
   );
 }
 
