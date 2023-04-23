@@ -1,11 +1,11 @@
 {
-  "homepage": "http://WilliamWongACD.github.io/williamwong-studio",
+  "homepage": "http://williamwongacd.github.io/williamwong-studio",
   "name": "wws",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predeploy": "npm run build",
+    "predeploy": "rm -rf ./dist && npm run build",
     "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
