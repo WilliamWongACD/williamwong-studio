@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 import useWindowWidth from '../../hooks/useWindowWidth';
 
 const CaseStudyItem = ({ title, body, src, index = 1 }) => {
-  const isMobileWidth = useWindowWidth() <= 1024;
+  const isMobileWidth = useWindowWidth() <= 768;
   return isMobileWidth ? <MobileCaseStudyItem title={title} body={body} src={src} /> : <DesktopCaseStudyItem title={title} body={body} src={src} index={index} />;
 };
 
@@ -21,7 +21,7 @@ const MobileCaseStudyItem = ({ title, body, src }) => {
 };
 
 const DesktopCaseStudyItem = ({ title, body, src, index }) => {
-  const isMobileWidth = useWindowWidth() <= 1024;
+  const isMobileWidth = useWindowWidth() <= 768;
   const leftRef = React.useRef();
   const rightRef = React.useRef();
 
@@ -47,13 +47,23 @@ const DesktopCaseStudyItem = ({ title, body, src, index }) => {
 
   return (
     <div className={styles.container}>
-      {index % 2 !== 0 && <img ref={index % 2 !== 0 && !isMobileWidth ? leftRef : undefined} src={src} />}
-      <div className={styles.content}>
-        <h4>{title}</h4>
-        <p>{body}</p>
-        <button>View Case Study</button>
+      {index % 2 !== 0 && !isMobileWidth && (
+        <div className={styles.column}>
+          <img ref={index % 2 !== 0 && !isMobileWidth ? leftRef : undefined} src={src} />
+        </div>
+      )}
+      <div className={styles.column}>
+        <div className={styles.content}>
+          <h4>{title}</h4>
+          <p>{body}</p>
+          <button>View Case Study</button>
+        </div>
       </div>
-      {index % 2 === 0 && <img ref={index % 2 === 0 ? rightRef : undefined} src={src} />}
+      {index % 2 === 0 && !isMobileWidth && (
+        <div className={styles.column}>
+          <img ref={index % 2 === 0 && !isMobileWidth ? rightRef : undefined} src={src} />
+        </div>
+      )}
     </div>
   );
 };
