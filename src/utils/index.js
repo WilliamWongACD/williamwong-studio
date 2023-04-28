@@ -9,3 +9,7 @@ export function scrollToTopSmooth() {
 export function classes() {
   return [...arguments].splice('').join(' ');
 }
+
+export function joinStyles() {
+  return Object.assign({}, ...arguments);
+}

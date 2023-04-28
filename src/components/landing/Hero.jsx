@@ -29,7 +29,9 @@ const Hero = () => {
 
   return (
     <main className={styles.hero}>
-      <h4 ref={ref}>I’m William Wong, an experienced Visual UI Designer based in NYC. I’m passionate about creating digital experiences through problem-solving and innovation. Focused on visual storytelling aimed to bring user experiences to life.</h4>
+      <h4 ref={ref} id="heroText">
+        I’m William Wong, an experienced Visual UI Designer based in NYC. I’m passionate about creating digital experiences through problem-solving and innovation. Focused on visual storytelling aimed to bring user experiences to life.
+      </h4>
     </main>
   );
 };
