@@ -1,5 +1,4 @@
-#!/bin/bash
-echo rm -rf 
+#!/bin/bash 
 
 # clean previous dist directory
 rm -rf dist
