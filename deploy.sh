@@ -10,5 +10,5 @@ npm run build
 git add dist -f
 git commit -m "updating gh-pages branch for new release $(date +%Y%m%d)"
 
-git subtree push --prefix dist https://github.com/williamwongacd/williamwong-studio.git master
+git subtree push --prefix dist https://github.com/williamwongacd/williamwong-studio.git gh-pages
 # git subtree push --prefix dist origin gh-pages
