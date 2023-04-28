@@ -3,9 +3,11 @@
 .caseStudies {
   background-color: $light-gray;
   color: $dark-gray;
-  padding: 6rem 0 0;
+  padding: 6rem 0 4rem;
+  text-align: center;
   @media (min-width: 1024px) {
     padding-bottom: 6rem;
+    text-align: revert;
   }
 }
 
@@ -26,6 +28,12 @@
   img {
     width: 100%;
     height: auto;
+  }
+
+  .content {
+    p {
+      margin-bottom: 1rem;
+    }
   }
 
   @media (max-width: 768px) {
@@ -50,7 +58,7 @@
     }
 
     p {
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
     }
   }
 }
@@ -75,6 +83,9 @@
   & swiper-slide:first-of-type {
     margin-left: 0.5rem;
   }
+  & swiper-slide:last-of-type {
+    padding-right: 0.5rem;
+  }
   img {
     border-radius: 1.5rem;
   }
@@ -96,7 +107,7 @@
     padding-top: 0;
     h5 {
       margin-bottom: 1rem;
-      margin-left: 1rem;
+      // margin-left: 1rem;
     }
   }
 }
